@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "wheresbebo-finance": {
+      "hosting": {
+        "presentazione-igenius": [
+          "wheresbebo-finance"
+        ]
+      }
+    }
+  }
+}
