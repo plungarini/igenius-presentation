@@ -35,4 +35,11 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   showBody = 'show';
+
+  socials = {
+    instagram: 'https://www.instagram.com/wheresbebo',
+    facebook: 'https://www.facebook.com/pietrolungarini',
+    linkedin: 'https://www.linkedin.com/in/plungarini/',
+  }
+
 }
