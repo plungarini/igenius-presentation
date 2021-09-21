@@ -1,45 +1,35 @@
-import {
-  animate, state,
-  style, transition, trigger
-} from '@angular/animations';
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { EventsService } from './shared/services/events.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [
-    trigger('slideInOutHeader', [
-      state('show', style({
-        height: '55vh',
-      })),
-      state('hide', style({
-        height: '85vh',
-      })),
-      transition('show => hide', animate('400ms ease-in-out')),
-      transition('hide => show', animate('400ms ease-in-out'))
-    ]),
-    trigger('slideInOutBody', [
-      state('show', style({
-        height: 'auto',
-      })),
-      state('hide', style({
-        height: '0px',
-      })),
-      transition('show => hide', animate('400ms ease-in-out')),
-      transition('hide => show', animate('400ms ease-in-out'))
-    ]),
-  ]
 })
-  
+
 
 export class AppComponent {
-  showBody = 'show';
 
   socials = {
     instagram: 'https://www.instagram.com/wheresbebo',
     facebook: 'https://www.facebook.com/pietrolungarini',
     linkedin: 'https://www.linkedin.com/in/plungarini/',
+  }
+
+  constructor(
+    private router: Router,
+    private eventsService: EventsService,
+  ) {
+    this.router.events.forEach(item => {
+      if (item instanceof NavigationEnd) {
+        const gtmTag = {
+          event: 'page',
+          pageName: item.url
+        };
+
+        this.eventsService.send(gtmTag);
+      }
+    });
   }
 
 }

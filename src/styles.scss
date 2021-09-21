@@ -10,3 +10,82 @@
     }
   }
 }
+
+
+// GLOBAL CSS
+@layer base {
+
+  html {
+    
+    // Scrollbar
+    ::-webkit-scrollbar-track {
+      border-color: hsla(0, 0%, 100%, 0.05);
+    }
+    ::-webkit-scrollbar-thumb {
+      min-width: 3rem;
+      min-height: 3rem;
+      border: 0.4rem solid transparent;
+      -moz-background-clip: content;
+      -webkit-background-clip: content;
+      background-clip: content-box;
+      border-radius: 1rem;
+      background-color: rgba(30, 30, 30, 0.25);
+
+      &:hover {
+        background-color: rgba(30, 30, 30, 0.4);
+      }
+    }
+    ::-webkit-scrollbar-corner {
+      background-color: transparent;
+      border-left: 1px solid hsla(0, 0%, 100%, 0.05); //light rgba(0, 0, 0, 0.1)
+      border-top: 1px solid hsla(0, 0%, 100%, 0.05);
+    }
+    ::-webkit-scrollbar {
+      width: 1.2rem;
+      height: 1.2rem;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-color: hsla(0, 0%, 100%, 0.05);
+    }
+    &::-webkit-scrollbar-thumb {
+      min-width: 3rem;
+      min-height: 3rem;
+      border: 0.4rem solid transparent;
+      -moz-background-clip: content;
+      -webkit-background-clip: content;
+      background-clip: content-box;
+      border-radius: 1rem;
+      background-color: rgba(30, 30, 30, 0.25);
+
+      &:hover {
+        background-color: rgba(30, 30, 30, 0.4);
+      }
+    }
+    &::-webkit-scrollbar-corner {
+      background-color: transparent;
+      border-left: 1px solid hsla(0, 0%, 100%, 0.05); //light rgba(0, 0, 0, 0.1)
+      border-top: 1px solid hsla(0, 0%, 100%, 0.05);
+    }
+    &::-webkit-scrollbar {
+      width: 1.2rem;
+      height: 1.2rem;
+      background-color: transparent;
+    }
+
+  }
+
+}
+
+@layer components {
+  // FIXES
+  input:not([type="checkbox"]), button, select, textarea, .badge, .btn, [type="button"], [type="submit"] {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+  }
+  *, div, a, p, span {
+    @apply transition-all duration-300;
+  }
+}

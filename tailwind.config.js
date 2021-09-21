@@ -13,7 +13,11 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      grayscale: ['hover'],
+      ringWidth: ['hover'],
+      ringColor: ['hover'],
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),
