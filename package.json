@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@mailchimp/mailchimp_marketing": "^3.0.66",
     "@tailwindcss/forms": "^0.3.3",
     "@vimeo/player": "^2.16.1",
     "angular-google-tag-manager": "^1.4.2",

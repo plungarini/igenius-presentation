@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { getFunctions, httpsCallable } from "firebase/functions";
 
 
 interface userForm {
@@ -11,6 +12,10 @@ interface userForm {
 interface MailChimpResponse {
   result: string;
   msg: string;
+}
+export interface MailChimpMemberTag {
+    name: string;
+    status: 'inactive' | 'active';
 }
 
 @Injectable({
@@ -39,6 +44,7 @@ export class MailchimpService {
     this.http.jsonp<MailChimpResponse>(mailChimpUrl, 'c').subscribe(response => {
 				if (response.result && response.result !== 'error') {
           this.submitted = true;
+          localStorage.setItem('user_email', form.email);
           console.log('Subscribed to newsletter successfully');
 				}
 				else {
@@ -50,6 +56,18 @@ export class MailchimpService {
     });
     
     localStorage.setItem('user_form_submitted', 'true');
+  }
+
+  setUserTags(tags: MailChimpMemberTag): void {
+    const email = localStorage.getItem('user_email');
+    if (!email) return;
+    const functions = getFunctions(undefined, 'europe-west2');
+    const setUserTagsBE = httpsCallable(functions, 'applyMailChimpTag');
+    const data = {
+      email: email,
+      tags: [tags],
+    };
+    setUserTagsBE(data);
   }
 
 }

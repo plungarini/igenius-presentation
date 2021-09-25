@@ -1,0 +1,13 @@
+[debug] [2021-09-25T14:06:23.014Z] ----------------------------------------------------------------------
+[debug] [2021-09-25T14:06:23.016Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\pietr\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2021-09-25T14:06:23.016Z] CLI Version:   9.18.0
+[debug] [2021-09-25T14:06:23.016Z] Platform:      win32
+[debug] [2021-09-25T14:06:23.016Z] Node Version:  v14.17.6
+[debug] [2021-09-25T14:06:23.017Z] Time:          Sat Sep 25 2021 16:06:23 GMT+0200 (Ora legale dell’Europa centrale)
+[debug] [2021-09-25T14:06:23.017Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-09-25T14:06:23.064Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-09-25T14:06:23.065Z] > authorizing via signed-in user (pietro@lungarini.it)
+[debug] [2021-09-25T14:06:23.065Z] [iam] checking project wheresbebo-finance for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2021-09-25T14:06:23.067Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/wheresbebo-finance:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}

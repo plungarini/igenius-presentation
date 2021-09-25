@@ -18,7 +18,7 @@ export class MainVideoComponent implements OnInit {
     title: false
   };
 
-  canSeek = true; // DEBUG ONLY, leave it to FALSE
+  canSeek = true;
 
   constructor(private eventsService: EventsService) { }
 
@@ -27,14 +27,18 @@ export class MainVideoComponent implements OnInit {
 
   onHalfProgress(val: number): void {
     if (!val) return;
-    this.eventsService.send({ event: 'second_video_half_progress' });
+    this.eventsService.send({ event: 'setTag', title: 'second_video_half_progress' });
   }
 
   onVideoEnded(res: boolean): void {
     if (!res) return;
     this.videoWatched = res;
     localStorage.setItem('main_video_watched', 'true');
-    this.eventsService.send({ event: 'second_video_ended' });
+    this.eventsService.send({ event: 'setTag', title: 'second_video_ended' });
+  }
+
+  instagramClicked(): void {
+    this.eventsService.send({ event: 'setTag', title: 'contact_instagram' });
   }
 
 }

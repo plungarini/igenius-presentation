@@ -3,12 +3,21 @@
     <div [@slideInOutForm]="showUserForm" class="fixed left-0 top-0 h-screen w-screen z-50 bg-gray-700 bg-opacity-60 overflow-hidden" style="backdrop-filter: blur(3px);">
         <div class="w-full px-4 sm:px-0 max-w-md absolute-center">
             <div class="w-full rounded-2xl overflow-hidden shadow-2xl py-6 px-6 bg-white">
-                <p class="text-xl font-extrabold text-gray-900 tracking-tight sm:text-2xl">
-                    Un ultimo step...
-                </p>
-                <p class="max-w-prose mx-auto text-base text-gray-500">
-                    Inserisci i tuoi dati per sbloccare il video con la <b>Strategia Completa</b> che mi ha permesso di creare più di <b>5 entrate ricorrenti ogni Mese</b>!
-                </p>
+                <div class="flex flex-row w-full">
+                    <div>
+                        <p class="text-xl font-extrabold text-gray-900 tracking-tight sm:text-2xl">
+                            Un ultimo step...
+                        </p>
+                        <p class="max-w-prose mx-auto text-base text-gray-500">
+                            Inserisci i tuoi dati per sbloccare il video con la <b>Strategia Completa</b> che mi ha permesso di creare più di <b>5 entrate ricorrenti ogni Mese</b>!
+                        </p>
+                    </div>
+                    <div class="w-min">
+                        <svg (click)="hideContactForm()" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-3 text-gray-400 hover:text-red-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                </div>
 
                 <form [formGroup]="userForm" (ngSubmit)="submitUserForm()" class="mt-6">
 

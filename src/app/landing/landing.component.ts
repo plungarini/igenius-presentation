@@ -137,32 +137,32 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   interestedCategory(val: string): void {
     if (!val) return;
-    this.eventsService.send({ event: 'userCategory_' + val });
+    this.eventsService.send({ event: 'setTag', title: 'userCategory_' + val });
   }
 
   onHalfProgress(val: number): void {
     if (!val) return;
-    this.eventsService.send({ event: 'first_video_half_progress' });
+    this.eventsService.send({ event: 'setTag', title: 'first_video_half_progress' });
   }
 
   onVideoEnded(res: boolean): void {
     if (!res) return;
     this.firstVideoWatched = res;
     localStorage.setItem('intro_watched', 'true');
-    this.eventsService.send({ event: 'first_video_ended' });
+    this.eventsService.send({ event: 'setTag', title: 'first_video_ended' });
   }
 
   showSecondVideoFn(): void {
     this.showFirstVideo = 'hide';
     this.showSecondVideo = 'show';
-    this.eventsService.send({ event: 'second_video_btn_click' });
+    this.eventsService.send({ event: 'setTag', title: 'second_video_btn_click' });
   }
 
   showBodyFn(): void {
     this.showFirstVideo = 'hide';
     this.showBody = 'show';
     this.showHero = 'show';
-    this.eventsService.send({ event: 'read_more_btn_click' });
+    this.eventsService.send({ event: 'setTag', title: 'read_more_btn_click' });
   }
 
   showContactForm(): void {
@@ -171,6 +171,11 @@ export class LandingComponent implements OnInit, OnDestroy {
       this.showUserForm = 'show';
     else
       this.showFirstVideoFn();
+  }
+
+  hideContactForm(): void {
+    this.showUserForm = 'hide';
+    this.eventsService.send({ event: 'setTag', title: 'closed_optin_form' })
   }
 
   submitUserForm(): void {
@@ -207,7 +212,7 @@ export class LandingComponent implements OnInit, OnDestroy {
     this.showUserForm = 'hide';
     this.showFirstVideo = 'show';
     this.showBody = 'hide';
-    this.eventsService.send({ event: 'first_video_btn_click' });
+    this.eventsService.send({ event: 'setTag', title: 'first_video_btn_click' });
   }
 
 }
